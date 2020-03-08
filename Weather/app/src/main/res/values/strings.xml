@@ -30,10 +30,19 @@
     <string name="settings">Settings</string>
     <string name="extra_parameters">Extra parametres</string>
     <string name="sun_moon">The Sun and the Moon</string>
-    <string name="ok">Ok</string>
+    <string name="ok" translatable="false">Ok</string>
     <string name="wind">Wind</string>
     <string name="m_s">m/s</string>
     <string name="humidity">Humidity</string>
     <string name="pressure">Pressure</string>
     <string name="mmHg">mmHg</string>
+    <string name="lastCities">Last viewed cities</string>
+    <string name="theme">Theme</string>
+    <string name="light_theme">Light theme</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="language">Language</string>
+    <string name="english" translatable="false">English</string>
+    <string name="russian" translatable="false">Русский</string>
+    <string name="wiki">https://en.wikipedia.org/wiki/</string>
+    <string name="browser_abs">Browser not found</string>
 </resources>

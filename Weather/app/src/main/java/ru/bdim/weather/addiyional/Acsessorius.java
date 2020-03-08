@@ -6,12 +6,6 @@ import ru.bdim.weather.R;
 
 public class Acsessorius {
     // метод определяет цвет в спектре от синего до красного
-    private static int[] imgSkyArray = {
-            R.drawable.sun, R.drawable.sun_clouds, R.drawable.clouds,
-            R.drawable.rain, R.drawable.lightning, R.drawable.snow};
-    public static int getSkyImage(int num){
-        return imgSkyArray[num];
-    }
     public static int getRGB (int x, int t0, int t){
         int r, g, b;
         int dt = (t - t0);

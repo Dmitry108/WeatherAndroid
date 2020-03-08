@@ -6,5 +6,5 @@
     <dimen name="large_text_size">48sp</dimen>
     <dimen name="large_image_size">64dp</dimen>
     <dimen name="middle_image_size">48dp</dimen>
-    <dimen name="large_margin">32</dimen>
+    <dimen name="large_margin">32dp</dimen>
 </resources>
