@@ -24,6 +24,21 @@
     <string name="prg">Prague</string>
     <string name="par">Paris</string>
     <string name="ber">Berlin</string>
+    <string name="lon">London</string>
+    <string name="ams">Amsterdam</string>
+    <string name="ath">Athens</string>
+    <string name="mad">Madrid</string>
+    <string name="vie">Vienna</string>
+    <string name="bud">Budapest</string>
+    <string name="bru">Brussel</string>
+    <string name="waw">Warsaw</string>
+    <string name="beg">Belgrade</string>
+    <string name="rom">Rome</string>
+    <string name="bts">Bratislava</string>
+    <string name="dub">Dublin</string>
+    <string name="zag">Zagreb</string>
+    <string name="msq">Minsk</string>
+    <string name="iev">Kiev</string>
     <string name="cloudly">Cloudly</string>
     <string name="degree" translatable="false">u00B0</string>
     <string name="choice_city">Enter a city</string>
@@ -36,7 +51,7 @@
     <string name="humidity">Humidity</string>
     <string name="pressure">Pressure</string>
     <string name="mmHg">mmHg</string>
-    <string name="lastCities">Last viewed cities</string>
+    <string name="last_cities">Last viewed cities</string>
     <string name="theme">Theme</string>
     <string name="light_theme">Light theme</string>
     <string name="dark_theme">Dark theme</string>
@@ -45,4 +60,6 @@
     <string name="russian" translatable="false">Русский</string>
     <string name="wiki">https://en.wikipedia.org/wiki/</string>
     <string name="browser_abs">Browser not found</string>
+    <string name="lang">en</string>
+    <string name="error_connection">Error connection</string>
 </resources>

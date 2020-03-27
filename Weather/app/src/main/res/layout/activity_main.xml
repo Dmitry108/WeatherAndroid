@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lyt_main_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/lyt_main_activity"
     tools:context=".activities.MainActivity"
     tools:ignore="ContentDescription">
 
@@ -13,167 +12,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <fragment
+            android:id="@+id/fmt_main_weather"
+            android:name="ru.bdim.weather.fragments.MainWeatherFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_margin"
-            android:layout_margin="@dimen/small_margin">
+            android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/tvw_date_today"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/small_margin"
-                android:textSize="@dimen/main_text_size"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvw_city"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/small_margin"
-                android:fontFamily="cursive"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/large_text_size"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvw_date_today" />
-
-            <TextView
-                android:id="@+id/tvw_temperature_now"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/small_margin"
-                android:layout_marginTop="16dp"
-                android:fontFamily="cursive"
-                android:textSize="@dimen/large_text_size"
-                app:layout_constraintEnd_toStartOf="@+id/img_sky"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvw_city" />
-
-            <ImageView
-                android:id="@+id/img_sky"
-                android:layout_width="@dimen/large_image_size"
-                android:layout_height="@dimen/large_image_size"
-                android:layout_margin="@dimen/small_margin"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toEndOf="@id/tvw_temperature_now"
-                app:layout_constraintTop_toBottomOf="@id/tvw_city" />
-
-            <TextView
-                android:id="@+id/tvw_sky"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/small_margin"
-                android:textSize="@dimen/main_text_size"
-                app:layout_constraintStart_toStartOf="@id/img_sky"
-                app:layout_constraintTop_toBottomOf="@id/img_sky" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <LinearLayout
-            android:id="@+id/llt_extra_parameters"
+        <FrameLayout
+            android:id="@+id/flt_extra_parameters"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:layout_margin="@dimen/small_margin">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/main_text_size"
-                    android:text="@string/wind" />
-
-                <ImageView
-                    android:id="@+id/img_wind"
-                    android:layout_width="@dimen/middle_image_size"
-                    android:layout_height="@dimen/middle_image_size"
-                    android:layout_marginTop="@dimen/small_margin"
-                    app:srcCompat="@drawable/wind" />
-
-                <TextView
-                    android:id="@+id/tvw_wind"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginTop="@dimen/small_margin" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/listDivider"
-                android:visibility="visible" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/main_text_size"
-                    android:text="@string/humidity" />
-
-                <ImageView
-                    android:id="@+id/img_humidity"
-                    android:layout_width="@dimen/middle_image_size"
-                    android:layout_height="@dimen/middle_image_size"
-                    android:layout_marginTop="@dimen/small_margin"
-                    app:srcCompat="@drawable/humidity" />
-
-                <TextView
-                    android:id="@+id/tvw_humidity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/small_margin"/>
-            </LinearLayout>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/listDivider" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/main_text_size"
-                    android:text="@string/pressure" />
-
-                <ImageView
-                    android:id="@+id/img_pressure"
-                    android:layout_width="@dimen/middle_image_size"
-                    android:layout_height="@dimen/middle_image_size"
-                    android:layout_marginTop="@dimen/small_margin"
-                    app:srcCompat="@drawable/pressure" />
-
-                <TextView
-                    android:id="@+id/tvw_pressure"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/small_margin"/>
-            </LinearLayout>
-        </LinearLayout>
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </ScrollView>

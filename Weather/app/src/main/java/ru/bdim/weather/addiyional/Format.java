@@ -1,10 +1,24 @@
 package ru.bdim.weather.addiyional;
 
+import android.annotation.SuppressLint;
+import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.view.View;
+
+import java.util.Locale;
 
 import ru.bdim.weather.R;
 
-public class Acsessorius {
+public class Format {
+
+    public static String getTempC(int t){
+        return String.format(Locale.ROOT, "%s%d \u00B0C", t > 0 ? "+" : "", t);
+    }
+    public static int geiImgSky(View view, int sky){
+        @SuppressLint("Recycle")
+        TypedArray imageArray = view.getResources().obtainTypedArray(R.array.img_sky);
+        return imageArray.getResourceId(sky, -1);
+    }
     // метод определяет цвет в спектре от синего до красного
     public static int getRGB (int x, int t0, int t){
         int r, g, b;
