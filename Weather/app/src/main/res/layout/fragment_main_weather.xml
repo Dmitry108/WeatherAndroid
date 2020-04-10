@@ -57,7 +57,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/small_margin"
         android:textSize="@dimen/main_text_size"
-        app:layout_constraintStart_toStartOf="@id/img_sky"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/img_sky" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

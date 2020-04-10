@@ -9,7 +9,7 @@
         <item>Снег</item>
     </string-array>
     <string-array name="wind_direction">
-        <item>Штиль</item>
+
         <item>Северный</item>
         <item>Северо-восточный</item>
         <item>Восточный</item>
@@ -58,4 +58,25 @@
     <string name="browser_abs">Браузер не найден</string>
     <string name="lang">ru</string>
     <string name="error_connection">Ошибка соединения</string>
+    <string name="select_city">Выберите город</string>
+    <string name="open">Открыть</string>
+    <string name="delete">Удалить</string>
+    <string name="about_app">О приложении</string>
+    <string name="version">Версия</string>
+    <string name="developer">Разработчик</string>
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">close</string>
+    <string name="weather">Погода</string>
+    <string name="sort_by_city">Сортировать по городу</string>
+    <string name="sort_by_date">Сортировать по дате</string>
+    <string name="sort_by_temperature">Сортировать по температуре</string>
+    <string name="cancel">Cancel</string>
+    <string name="search_history">Search history</string>
+    <string name="data_error">Error receiving data</string>
+    <string name="connection_lost">Connection lost</string>
+    <string name="connection_abs">Internet is available</string>
+    <string name="refresh_weather">Do you want to refresh weather?</string>
+    <string name="yes">Yes</string>
+    <string name="no">no</string>
+    <string name="battery_low">Battery low</string>
 </resources>

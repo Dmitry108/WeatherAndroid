@@ -10,6 +10,16 @@
         <item>@drawable/snow</item>
         <item>@drawable/compass</item>
     </integer-array>
+    <integer-array name="example_for_graphic">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </integer-array>
     <string-array name="pop_cities">
         <item>@string/mow</item>
         <item>@string/prg</item>

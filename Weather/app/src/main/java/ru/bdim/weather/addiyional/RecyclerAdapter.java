@@ -1,33 +1,34 @@
 package ru.bdim.weather.addiyional;
 
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import ru.bdim.weather.R;
+import ru.bdim.weather.data.CurrentWeather;
+import ru.bdim.weather.data.Weather;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
-    private List<Weather> data;
     private OnItemClickListener clickListener;
+    private OnItemContextMenu contextMenu;
+    private View selectedItem;
+    private int selectedPosition;
+    private List<CurrentWeather> lastCityList;
 
-    public RecyclerAdapter(List<Weather> data) {
-        this.data = data;
+    public RecyclerAdapter(){
+        lastCityList = Weather.getWeatherList();
     }
-
-    public void setClickListener(OnItemClickListener clickListener) {
+    public void setItemInterface(OnItemClickListener clickListener, OnItemContextMenu contextMenu) {
         this.clickListener = clickListener;
+        this.contextMenu = contextMenu;
     }
-
     @NonNull
     @Override
     public RecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -36,39 +37,70 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         return new ViewHolder(view);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapter.ViewHolder holder, int position) {
         TextView tvwCity = holder.itemView.findViewById(R.id.tvw_last_city);
         TextView tvwDate = holder.itemView.findViewById(R.id.tvw_last_date);
         TextView tvwTemp = holder.itemView.findViewById(R.id.tvw_last_temp);
         ImageView imgSky = holder.itemView.findViewById(R.id.img_last_sky);
-        Weather weather = data.get(position);
+        CurrentWeather weather = lastCityList.get(position);
         tvwCity.setText(weather.getCity());
         tvwDate.setText(weather.getDate());
         tvwTemp.setText(Format.getTempC(weather.getTemperature()));
-        imgSky.setImageResource(Format.geiImgSky(imgSky, weather.getSkyIcon()));
+        imgSky.setImageResource(Format.geiImgSky(imgSky, weather.getSky()));
     }
-
     @Override
     public int getItemCount() {
-        return data.size();
+        return lastCityList.size();
     }
 
+    public void removeItem() {
+        lastCityList = Weather.removeWeather(lastCityList.get(selectedPosition).getCity());
+        notifyItemRemoved(selectedPosition);
+    }
+    public void openItem() {
+        selectedItem.callOnClick();
+    }
+    public void sortByCity() {
+        lastCityList = Weather.sortListByCity();
+        notifyItemRangeChanged(0, getItemCount());
+    }
+    public void sortByDate() {
+        lastCityList = Weather.sortListByDate();
+        notifyItemRangeChanged(0, getItemCount());
+    }
+    public void sortByTemp() {
+        lastCityList = Weather.sortListByTemp();
+        notifyItemRangeChanged(0, getItemCount());
+    }
+    public void search(String query) {
+        lastCityList = Weather.searchList(query);
+        notifyDataSetChanged();
+    }
     class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            final LinearLayout item = (LinearLayout) itemView;
-            item.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     clickListener.onClickListener(v, getAdapterPosition());
                 }
             });
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    selectedItem = v;
+                    selectedPosition = getAdapterPosition();
+                    return false;
+                }
+            });
+            contextMenu.registerContextMenu(itemView);
         }
     }
-
     public interface OnItemClickListener {
         void onClickListener(View view, int position);
+    }
+    public interface OnItemContextMenu {
+        void registerContextMenu(View view);
     }
 }

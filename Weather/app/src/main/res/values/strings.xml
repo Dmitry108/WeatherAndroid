@@ -9,7 +9,7 @@
         <item>Snow</item>
     </string-array>
     <string-array name="wind_direction">
-        <item>Calm</item>
+
         <item>North</item>
         <item>North-East</item>
         <item>East</item>
@@ -62,4 +62,25 @@
     <string name="browser_abs">Browser not found</string>
     <string name="lang">en</string>
     <string name="error_connection">Error connection</string>
+    <string name="select_city">Select city</string>
+    <string name="open">Open</string>
+    <string name="delete">Delete</string>
+    <string name="about_app">About application</string>
+    <string name="version">Version</string>
+    <string name="developer">Developer</string>
+    <string name="weather">Weather</string>
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">close</string>
+    <string name="sort_by_city">Sort by city</string>
+    <string name="sort_by_date">Sort by date</string>
+    <string name="sort_by_temperature">Sort by temperature</string>
+    <string name="cancel">Cancel</string>
+    <string name="search_history">Search history</string>
+    <string name="data_error">Error receiving data</string>
+    <string name="connection_lost">Connection lost</string>
+    <string name="connection_abs">Internet is available</string>
+    <string name="refresh_weather">Do you want to refresh weather?</string>
+    <string name="yes">Yes</string>
+    <string name="no">no</string>
+    <string name="battery_low">Battery low</string>
 </resources>

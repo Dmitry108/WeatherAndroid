@@ -1,23 +1,64 @@
 package ru.bdim.weather.addiyional;
 
-import android.annotation.SuppressLint;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.View;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import ru.bdim.weather.R;
 
-public class Format {
+public class Format implements Constants {
 
     public static String getTempC(int t){
         return String.format(Locale.ROOT, "%s%d \u00B0C", t > 0 ? "+" : "", t);
     }
     public static int geiImgSky(View view, int sky){
-        @SuppressLint("Recycle")
         TypedArray imageArray = view.getResources().obtainTypedArray(R.array.img_sky);
+        //imageArray.recycle();
         return imageArray.getResourceId(sky, -1);
+    }
+    public static int getDirFromDegree(int deg, int count){
+        int dir = ((deg + count/2)%360)*count/360;
+        Log.d(TAG, String.format("%d = %d/16 = %d", deg, (deg + count/2)%360, dir));
+        return dir;
+    }
+    public static int getIconNumber(String icon) {
+        int number;
+        switch (icon.substring(0, 2)) {
+            case "01": number = 0; break;
+            case "02": number = 1; break;
+            case "03":
+            case "04": number = 2; break;
+            case "09": number = 3; break;
+            case "10": number = 4; break;
+            case "11": number = 5; break;
+            case "13": number = 6; break;
+            case "50":
+            default: number = 7;
+        }
+        return number;
+    }
+    public static String dateToString(Date date){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("d MMMM yyyy", Locale.getDefault());
+        return dateFormat.format(date);
+    }
+    public static String timeToString(Date date){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("H:mm", Locale.getDefault());
+        return dateFormat.format(date);
+    }
+    public static Date stringToDate(String date){
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("d MMMM yyyy", Locale.getDefault());
+            return dateFormat.parse(date);
+        } catch (ParseException e) {
+            Log.e(TAG, e.getMessage());
+        }
+        return null;
     }
     // метод определяет цвет в спектре от синего до красного
     public static int getRGB (int x, int t0, int t){
